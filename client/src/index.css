@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Elegant Academic Palette - Light Mode */
+  --background: 210 20% 98%;
+  --foreground: 220 20% 20%;
+  
+  --primary: 220 60% 40%; /* Deep Blue - Academic/Trust */
+  --primary-foreground: 210 20% 98%;
+  
+  --secondary: 35 30% 92%; /* Warm Parchment/Paper tone */
+  --secondary-foreground: 220 20% 20%;
+  
+  --muted: 210 10% 92%;
+  --muted-foreground: 215 15% 50%;
+  
+  --accent: 25 80% 50%; /* Terracotta/Orange for focus */
+  --accent-foreground: 210 20% 98%;
+  
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 210 20% 98%;
+  
+  --border: 220 15% 90%;
+  --input: 220 15% 90%;
+  --ring: 220 60% 40%;
+  
+  --radius: 0.75rem;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+.dark {
+  /* Sophisticated Dark Mode */
+  --background: 220 20% 10%;
+  --foreground: 210 20% 90%;
+  
+  --primary: 220 60% 60%;
+  --primary-foreground: 220 20% 10%;
+  
+  --secondary: 220 15% 16%;
+  --secondary-foreground: 210 20% 90%;
+  
+  --muted: 220 15% 16%;
+  --muted-foreground: 215 15% 60%;
+  
+  --accent: 25 80% 60%;
+  --accent-foreground: 220 20% 10%;
+  
+  --destructive: 0 70% 60%;
+  --destructive-foreground: 220 20% 10%;
+  
+  --border: 220 15% 20%;
+  --input: 220 15% 20%;
+  --ring: 220 60% 60%;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+    font-family: var(--font-sans);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight text-foreground/90;
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/60 dark:bg-black/60 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-xl;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary/20;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50 transition-colors;
+}
